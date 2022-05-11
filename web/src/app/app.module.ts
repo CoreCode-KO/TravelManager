@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule, AuthModule, MainModule, PanelModule, RootModule } from './modules';
-import { SharedModule } from './shared';
+import { NavigationComponent, SharedModule } from './shared';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

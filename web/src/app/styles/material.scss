@@ -1,0 +1,91 @@
+@use '@angular/material' as mat;
+@import "theme";
+@import "@angular/material/theming";
+@include mat-core();
+
+$mat-primary-scheme: (
+    100: #c5cae9,
+    500: #61699a,
+    700: #303f9f,
+    contrast: (
+        100: rgba(0, 0, 0, 0.87),
+        500: #000000,
+        700: #000000,
+    ),
+);
+
+$mat-accent-scheme: (
+    100: #ff80ab,
+    500: #ff4081,
+    700: #f50057,
+    contrast: (
+        100: rgba(0, 0, 0, 0.87),
+        500: rgba(0, 0, 0, 0.87),
+        700: #ffffff,
+    ),
+);
+
+$mat-primary-palette: mat-palette($mat-primary-scheme);
+$mat-accent-palette: mat-palette($mat-accent-scheme);
+
+$app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
+$app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Nunito',
+);
+
+@include mat.core($custom-typography);
+
+
+.light-mode {
+  @include angular-material-theme($app-light-theme);
+  
+  .mat-menu {
+    box-shadow: var(--main--shadow)
+  }
+}
+
+.dark-mode {
+  @include angular-material-theme($app-dark-theme);
+
+  .mat-menu {
+    background-color: #020202;
+    outline: 2px solid var(--accent--color);
+
+    mat-icon {
+      color: var(--half--color) !important;
+    }
+  }
+}
+
+.mat-menu {
+  margin-top: 10px;
+  padding: 0 8px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+      mat-icon {
+        color: var(--primary--color) !important;
+      }
+    
+      span {
+        color: var(--primary--color) !important;
+      }
+    }
+  }
+
+  mat-icon {
+    margin-right: 10px;
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--half--color);
+  }
+}

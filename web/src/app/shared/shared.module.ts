@@ -18,7 +18,6 @@ import { DemoMaterialModule } from './modules';
         DemoMaterialModule,
     ],
     declarations: [
-
     ],
     exports: [
         CommonModule,
@@ -27,7 +26,7 @@ import { DemoMaterialModule } from './modules';
         HttpClientModule,
         RouterModule,
         BrowserAnimationsModule,
-        DemoMaterialModule
+        DemoMaterialModule,
     ]
 })
 export class SharedModule { }

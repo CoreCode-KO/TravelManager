@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<div class="app">
+    <app-navigation [routeMain]="routeMain"></app-navigation>
+    <div class="pages" [ngClass]="{'main': routeMain == 'main'}">
+        <router-outlet></router-outlet>
+    </div>
+</div>
