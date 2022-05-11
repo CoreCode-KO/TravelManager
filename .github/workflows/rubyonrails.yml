@@ -13,9 +13,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./server
     services:
       postgres:
         image: postgres:14-alpine
@@ -47,9 +44,6 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./server
     env:
       BUNDLE_GEMFILE: ./server/Gemfile
     steps:
