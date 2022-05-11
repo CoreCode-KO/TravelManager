@@ -49,3 +49,7 @@ group :development do
   gem "rubocop-rails", "~> 2.14"
   gem "rubocop-rspec", "~> 2.10"
 end
+
+gem "bundler-audit", "~> 0.9.0"
+
+gem "brakeman", "~> 5.2"

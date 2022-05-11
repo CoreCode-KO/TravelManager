@@ -19,13 +19,16 @@ jobs:
         ports:
           - "5432:5432"
         env:
-          POSTGRES_DB: rails_test
+          POSTGRES_DB: TravelManager_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
     env:
       RAILS_ENV: test
-      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
-      BUNDLE_GEMFILE: ./server/Gemfile
+      BUNDLE_GEMFILE: /home/runner/work/TravelManager/TravelManager/server/Gemfile
+      DATABASE_USER: rails
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: localhost
+      DATABASE_PORT: 5432
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -47,7 +50,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     env:
-      BUNDLE_GEMFILE: ./server/Gemfile
+      BUNDLE_GEMFILE: /home/runner/work/TravelManager/TravelManager/server/Gemfile
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
