@@ -37,10 +37,12 @@ jobs:
           bundler-cache: true
       # Add or replace database setup steps here
       - name: Set up database schema
-        run: server/bin/rails db:schema:load
+        working-directory: ./server
+        run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
-        run: server/bin/rake
+        working-directory: ./server
+        run: bin/rake
 
   lint:
     runs-on: ubuntu-latest
@@ -55,8 +57,11 @@ jobs:
           bundler-cache: true
       # Add or replace any other lints here
       - name: Security audit dependencies
-        run: server/bin/bundler-audit --update
+        run: bin/bundler-audit --update
+        working-directory: ./server
       - name: Security audit application code
-        run: server/bin/brakeman -q -w2
+        run: bin/brakeman -q -w2
+        working-directory: ./server
       - name: Lint Ruby files
-        run: server/bin/rubocop --parallel
+        run: bin/rubocop --parallel
+        working-directory: ./server
