@@ -1,0 +1,71 @@
+.vscode
+
+.docker/*
+!.docker/.keep
+# ================SERVER IGNORE================
+./server/.bundle
+
+# Ignore all logfiles and tempfiles.
+server/log/*
+server/tmp/*
+!server/log/.keep
+!server/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+server/tmp/pids/*
+!server/tmp/pids/
+!server/tmp/pids/.keep
+
+# Ignore uploaded files in development.
+server/storage/*
+!server/storage/.keep
+server/tmp/storage/*
+!server/tmp/storage/
+!server/tmp/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+server/config/master.key
+
+# Environment file
+server/.env
+
+# ================WEB IGNORE================
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+web/dist
+web/tmp
+web/out-tsc
+web/bazel-out
+
+# Node
+web/node_modules
+web/npm-debug.log
+web/yarn-error.log
+
+# IDEs and editors
+web/.idea/
+web/.project
+web/.classpath
+web/.c9/
+web/*.launch
+web/.settings/
+web/*.sublime-workspace
+
+# Visual Studio Code
+web/.vscode/*
+web/history/*
+
+# Miscellaneous
+web/.angular/cache
+web/.sass-cache/
+web/connect.lock
+web/coverage
+web/libpeerconnection.log
+web/testem.log
+web/typings
+
+# System files
+web/.DS_Store
+web/Thumbs.db
