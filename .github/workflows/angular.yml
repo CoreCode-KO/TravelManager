@@ -35,19 +35,19 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install Dependencies
-        working-directory: /home/runner/work/TravelManager/TravelManager/
+        working-directory: /home/runner/work/TravelManager/TravelManager/web
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
           npm i
       - name: Build
-        working-directory: /home/runner/work/TravelManager/TravelManager/
+        working-directory: /home/runner/work/TravelManager/TravelManager/web
         run: |
           npm run build -- --prod
       - name: Lint
-        working-directory: /home/runner/work/TravelManager/TravelManager/
+        working-directory: /home/runner/work/TravelManager/TravelManager/web
         run: |
           npm run lint
       - name: Test
-        working-directory: /home/runner/work/TravelManager/TravelManager/
+        working-directory: /home/runner/work/TravelManager/TravelManager/web
         run: |
           npm run test -- --prod
