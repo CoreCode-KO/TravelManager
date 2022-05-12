@@ -195,3 +195,16 @@ nav {
         }
     }
 }
+
+
+.mobile-navbar {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .mobile-navbar {
+        display: flex;
+        box-shadow: none;
+        outline: none;
+    }
+}

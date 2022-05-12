@@ -10,6 +10,7 @@ import { ThemeService } from './shared';
 export class AppComponent {
   title = 'web';
   routeMain: string = '';
+  isPayments: boolean = false;
 
   constructor(private themeService: ThemeService, private router: Router) {
     this.themeService.initTheme();
@@ -18,10 +19,19 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         if (event.url.includes("/main")) {
           this.routeMain = 'main';
+          if (event.url.includes("/payments")) {
+            this.isPayments = true;
+          } else {
+            this.isPayments = false;
+          }
         } else if (event.url.includes("/panel")) {
           this.routeMain = 'panel';
         } else if (event.url.includes("/admin")) {
           this.routeMain = 'admin';
+        } else if (event.url.includes("/auth")) {
+          this.routeMain = 'auth';
+        } else if (event.url.includes("/landing")) {
+          this.routeMain = 'landing';
         } else {
           this.routeMain = '';
         }

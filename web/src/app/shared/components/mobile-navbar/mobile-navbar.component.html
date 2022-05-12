@@ -1,4 +1,4 @@
-<nav [ngClass]="{'main': routeMain == 'main'}">
+<nav class="mobile-navbar">
     <a class="logo" *ngIf="!user?.company_data && user?.role == 'user'">
         <h1 class="app-logo">Logo</h1>
     </a>
@@ -21,28 +21,6 @@
                 <span>Admin</span>
             </button>
         </mat-menu>
-    </div>
-    <div class="menu" *ngIf="routeMain == 'main'">
-        <a routerLink="/main/tickets" routerLinkActive="selected" class="tickets">
-            <mat-icon class="material-icons-round">local_activity</mat-icon>
-        </a>
-        <div class="main-menu">
-            <a routerLink="/main/transport" routerLinkActive="selected" class="transport">
-                <mat-icon class="material-icons-round">flight</mat-icon>
-            </a>
-            <a routerLink="/main/events" routerLinkActive="selected" class="events">
-                <mat-icon class="material-icons-round">event</mat-icon>
-            </a>
-            <a routerLink="/main/hotels" routerLinkActive="selected" class="hotels">
-                <mat-icon class="material-icons-round">hotel</mat-icon>
-            </a>
-            <a routerLink="/main/explore" routerLinkActive="selected" class="explore">
-                <mat-icon class="material-icons-round">explore</mat-icon>
-            </a>
-        </div>
-        <a routerLink="/main/payments" routerLinkActive="selected" class="payments">
-            <mat-icon class="material-icons-round">payment</mat-icon>
-        </a>
     </div>
     <div class="profile" *ngIf="user">
         <div class="user-info">
@@ -72,15 +50,5 @@
                 <span>Wyloguj</span>
             </button>
         </mat-menu>
-    </div>
-    <div *ngIf="!user">
-        <button *ngIf="routeMain == 'landing'" mat-stroked-button class="stroked-mat-btn" routerLink="/auth">
-            <mat-icon class="material-icons-round">login</mat-icon>
-            <span>Zaloguj</span>
-        </button>
-        <button *ngIf="routeMain == 'auth'" mat-stroked-button class="stroked-mat-btn" routerLink="/landing">
-            <mat-icon class="material-icons-round">home</mat-icon>
-            <span>Strona główna</span>
-        </button>
     </div>
 </nav>

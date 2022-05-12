@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule, AuthModule, MainModule, PanelModule, RootModule } from './modules';
-import { NavigationComponent, SharedModule } from './shared';
+import { MobileNavbarComponent, NavigationComponent, SharedModule } from './shared';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    MobileNavbarComponent
   ],
   imports: [
     BrowserModule,

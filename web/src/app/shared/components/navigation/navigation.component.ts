@@ -9,14 +9,14 @@ export class NavigationComponent implements OnInit {
 
   @Input() routeMain: string = '';
 
+  user: any;
+
   constructor() {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("user")!);
   }
 
-  ngOnChange() {
-    console.log(this.routeMain)
-  }
 
 }

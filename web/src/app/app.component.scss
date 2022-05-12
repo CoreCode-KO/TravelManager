@@ -13,4 +13,9 @@
     .pages.main {
         top: 0;
     }
+
+    .pages.payments {
+        top: 50px;
+        height: calc(100% - 100px);
+    }
 }
