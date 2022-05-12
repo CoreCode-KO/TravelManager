@@ -1,7 +1,7 @@
 <div class="app">
     <app-mobile-navbar *ngIf="isPayments"></app-mobile-navbar>
     <app-navigation [routeMain]="routeMain"></app-navigation>
-    <div class="pages" [ngClass]="{'main': routeMain == 'main', 'payments': isPayments}">
+    <div class="pages" [ngClass]="{'main': routeMain === 'main', 'payments': isPayments}">
         <router-outlet></router-outlet>
     </div>
 </div>

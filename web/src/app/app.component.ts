@@ -17,23 +17,28 @@ export class AppComponent {
 
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url.includes("/main")) {
-          this.routeMain = 'main';
-          if (event.url.includes("/payments")) {
+        switch (true) {
+          case event.url.includes('/main'):
+            this.routeMain = 'main';
+            break;
+          case event.url.includes("/panel"):
+            this.routeMain = 'panel';
+            break;
+          case event.url.includes("/admin"):
+            this.routeMain = 'admin';
+            break;
+          case event.url.includes("/auth"):
+            this.routeMain = 'auth';
+            break;
+          case event.url.includes("/landing"):
+            this.routeMain = 'landing';
+            break;
+          case event.url.includes("/payments"):
             this.isPayments = true;
-          } else {
+            break;
+          default:
+            this.routeMain = '';
             this.isPayments = false;
-          }
-        } else if (event.url.includes("/panel")) {
-          this.routeMain = 'panel';
-        } else if (event.url.includes("/admin")) {
-          this.routeMain = 'admin';
-        } else if (event.url.includes("/auth")) {
-          this.routeMain = 'auth';
-        } else if (event.url.includes("/landing")) {
-          this.routeMain = 'landing';
-        } else {
-          this.routeMain = '';
         }
       }
     });

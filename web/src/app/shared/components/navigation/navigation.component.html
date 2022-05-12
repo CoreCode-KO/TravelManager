@@ -1,8 +1,8 @@
-<nav [ngClass]="{'main': routeMain == 'main'}">
-    <a class="logo" *ngIf="!user?.company_data && user?.role == 'user'">
+<nav [ngClass]="{'main': routeMain === 'main'}">
+    <a class="logo" *ngIf="!user?.company_data && user?.role === 'user'">
         <h1 class="app-logo">Logo</h1>
     </a>
-    <div *ngIf="user?.company_data || user?.role != 'user'">
+    <div *ngIf="user?.company_data || user?.role !== 'user'">
         <a class="logo panel" [matMenuTriggerFor]="mode">
             <h1 class="app-logo">Logo</h1>
             <mat-icon class="material-icons-round">expand_more</mat-icon>
@@ -16,13 +16,13 @@
                 <mat-icon class="material-icons-round">store</mat-icon>
                 <span>Biznes</span>
             </button>
-            <button *ngIf="user.role != 'user'" mat-menu-item routerLink="/admin" routerLinkActive="active">
+            <button *ngIf="user.role !== 'user'" mat-menu-item routerLink="/admin" routerLinkActive="active">
                 <mat-icon class="material-icons-round">admin_panel_settings</mat-icon>
                 <span>Admin</span>
             </button>
         </mat-menu>
     </div>
-    <div class="menu" *ngIf="routeMain == 'main'">
+    <div class="menu" *ngIf="routeMain === 'main'">
         <a routerLink="/main/tickets" routerLinkActive="selected" class="tickets">
             <mat-icon class="material-icons-round">local_activity</mat-icon>
         </a>
@@ -74,11 +74,11 @@
         </mat-menu>
     </div>
     <div *ngIf="!user">
-        <button *ngIf="routeMain == 'landing'" mat-stroked-button class="stroked-mat-btn" routerLink="/auth">
+        <button *ngIf="routeMain === 'landing'" mat-stroked-button class="stroked-mat-btn" routerLink="/auth">
             <mat-icon class="material-icons-round">login</mat-icon>
             <span>Zaloguj</span>
         </button>
-        <button *ngIf="routeMain == 'auth'" mat-stroked-button class="stroked-mat-btn" routerLink="/landing">
+        <button *ngIf="routeMain === 'auth'" mat-stroked-button class="stroked-mat-btn" routerLink="/landing">
             <mat-icon class="material-icons-round">home</mat-icon>
             <span>Strona główna</span>
         </button>

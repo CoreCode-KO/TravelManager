@@ -1,8 +1,8 @@
 <nav class="mobile-navbar">
-    <a class="logo" *ngIf="!user?.company_data && user?.role == 'user'">
+    <a class="logo" *ngIf="!user?.company_data && user?.role === 'user'">
         <h1 class="app-logo">Logo</h1>
     </a>
-    <div *ngIf="user?.company_data || user?.role != 'user'">
+    <div *ngIf="user?.company_data || user?.role !== 'user'">
         <a class="logo panel" [matMenuTriggerFor]="mode">
             <h1 class="app-logo">Logo</h1>
             <mat-icon class="material-icons-round">expand_more</mat-icon>
@@ -16,7 +16,7 @@
                 <mat-icon class="material-icons-round">store</mat-icon>
                 <span>Biznes</span>
             </button>
-            <button *ngIf="user.role != 'user'" mat-menu-item routerLink="/admin" routerLinkActive="active">
+            <button *ngIf="user.role !== 'user'" mat-menu-item routerLink="/admin" routerLinkActive="active">
                 <mat-icon class="material-icons-round">admin_panel_settings</mat-icon>
                 <span>Admin</span>
             </button>
