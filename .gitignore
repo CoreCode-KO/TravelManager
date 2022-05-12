@@ -40,7 +40,7 @@ web/out-tsc
 web/bazel-out
 
 # Node
-web//node_modules
+web/node_modules
 web/npm-debug.log
 web/yarn-error.log
 
