@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DemoMaterialModule } from './modules';
 
@@ -17,7 +18,6 @@ import { DemoMaterialModule } from './modules';
         DemoMaterialModule,
     ],
     declarations: [
-
     ],
     exports: [
         CommonModule,
@@ -25,7 +25,8 @@ import { DemoMaterialModule } from './modules';
         ReactiveFormsModule,
         HttpClientModule,
         RouterModule,
-        DemoMaterialModule
+        BrowserAnimationsModule,
+        DemoMaterialModule,
     ]
 })
 export class SharedModule { }
