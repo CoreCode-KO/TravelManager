@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RoutesConfig } from './configs/routes.config';
+import { AuthGuard, RoleGuard } from './shared';
 
 const routes: Routes = [
+  { path: "", redirectTo: "landing", pathMatch: "full" },
   {
     path: RoutesConfig.basePaths.auth,
-    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+    canLoad: [AuthGuard],
+    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: RoutesConfig.basePaths.main,
+    canLoad: [AuthGuard],
     loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule)
   },
   {
     path: RoutesConfig.basePaths.admin,
+    canLoad: [AuthGuard],
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: RoutesConfig.basePaths.panel,
+    canLoad: [AuthGuard],
     loadChildren: () => import('./modules/panel/panel.module').then(m => m.PanelModule)
   },
 ];
@@ -30,6 +36,7 @@ const routes: Routes = [
       relativeLinkResolution: 'legacy',
     }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { ThemeService } from './shared';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   routeMain: string = '';
   isPayments: boolean = false;
 
-  constructor(private themeService: ThemeService, private router: Router) {
+  constructor(private themeService: ThemeService, private router: Router, public authService: AuthService) {
     this.themeService.initTheme();
 
     this.router.events.subscribe((event: Event) => {
@@ -20,6 +21,7 @@ export class AppComponent {
         switch (true) {
           case event.url.includes('/main'):
             this.routeMain = 'main';
+            event.url.includes("/payments") ? this.isPayments = true : this.isPayments = false;
             break;
           case event.url.includes("/panel"):
             this.routeMain = 'panel';
@@ -33,12 +35,8 @@ export class AppComponent {
           case event.url.includes("/landing"):
             this.routeMain = 'landing';
             break;
-          case event.url.includes("/payments"):
-            this.isPayments = true;
-            break;
           default:
             this.routeMain = '';
-            this.isPayments = false;
         }
       }
     });

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-mobile-navbar',
@@ -7,13 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobileNavbarComponent implements OnInit {
 
-  user: any;
-
-  constructor() {
-  }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("user")!);
   }
-
 }
