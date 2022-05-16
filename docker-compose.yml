@@ -1,5 +1,12 @@
 version: '3.8'
 services:
+  mailhog:
+    image: mailhog/mailhog
+    logging:
+      driver: 'none'  # disable saving logs
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
   db:
     image: postgres:14.2-alpine
     environment:
@@ -13,13 +20,14 @@ services:
     build: ./server
     ports: 
       - "3000:3000"
-    volumes:
-      - server:/usr/src/app
     environment:
       - DATABASE_USER=postgres
       - DATABASE_PASSWORD=postgres
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
+      - DEVISE_JWT_SECRET_KEY=641e9be5bc5351788d2ea394407145d12835e9f44fd71bdc2bced0095f2dd38d66786ea9681267702f2720576af8cd21b401f0517b6264732a9fa35149057647
+      - SMTP_HOST=mailhog
+      - SMTP_PORT=1025
   web:
     build: ./web
     ports: 
@@ -30,8 +38,6 @@ services:
       - API_HOST=server
 volumes:
   db:
-    driver: local
-  server:
     driver: local
   web:
     driver: local
