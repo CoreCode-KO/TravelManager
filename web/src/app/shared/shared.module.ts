@@ -11,6 +11,7 @@ import { DemoMaterialModule } from './modules';
 @NgModule({
     imports: [
         CommonModule,
+        BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
@@ -21,11 +22,11 @@ import { DemoMaterialModule } from './modules';
     ],
     exports: [
         CommonModule,
+        BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         RouterModule,
-        BrowserAnimationsModule,
         DemoMaterialModule,
     ]
 })
