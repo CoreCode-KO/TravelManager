@@ -29,6 +29,9 @@ jobs:
       DATABASE_PASSWORD: password
       DATABASE_HOST: localhost
       DATABASE_PORT: 5432
+      JWT_SECRET_KEY: 641e9be5bc5351788d2ea394407145d12835e9f44fd71bdc2bced0095f2dd38d66786ea9681267702f2720576af8cd21b401f0517b6264732a9fa35149057647
+      SMTP_HOST: localhost
+      SMTP_PORT: 1025
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
