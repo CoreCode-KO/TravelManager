@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared';
 
 import { SignUpPageComponent } from './sign-up-page.component';
 
@@ -8,9 +11,13 @@ describe('SignUpPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignUpPageComponent ]
+      imports: [
+        RouterTestingModule,
+        SharedModule
+      ],
+      declarations: [SignUpPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
