@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -9,14 +11,8 @@ export class NavigationComponent implements OnInit {
 
   @Input() routeMain: string = '';
 
-  user: any;
-
-  constructor() {
-  }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("user")!);
   }
-
-
 }

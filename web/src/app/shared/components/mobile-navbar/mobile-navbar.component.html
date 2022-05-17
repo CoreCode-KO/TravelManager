@@ -1,8 +1,8 @@
 <nav class="mobile-navbar">
-    <a class="logo" *ngIf="!user?.company_data! && user?.role === 'user'">
+    <a class="logo" *ngIf="!authService.isLoggedIn || !authService.getUser()?.company_data && authService.getUser()?.role === 'user'">
         <h1 class="app-logo">Logo</h1>
     </a>
-    <div *ngIf="user?.company_data! || user?.role !== 'user'">
+    <div *ngIf="authService.isLoggedIn && authService.getUser()?.company_data || authService.isLoggedIn && authService.getUser()?.role !== 'user'">
         <a class="logo panel" [matMenuTriggerFor]="mode">
             <h1 class="app-logo">Logo</h1>
             <mat-icon class="material-icons-round">expand_more</mat-icon>
@@ -12,22 +12,22 @@
                 <mat-icon class="material-icons-round">home</mat-icon>
                 <span>Podróż</span>
             </button>
-            <button *ngIf="user?.company_data!" mat-menu-item routerLink="/panel" routerLinkActive="active">
+            <button *ngIf="authService.getUser()?.company_data" mat-menu-item routerLink="/panel" routerLinkActive="active">
                 <mat-icon class="material-icons-round">store</mat-icon>
                 <span>Biznes</span>
             </button>
-            <button *ngIf="user?.role !== 'user'" mat-menu-item routerLink="/admin" routerLinkActive="active">
+            <button *ngIf="authService.getUser()?.role !== 'user'" mat-menu-item routerLink="/admin" routerLinkActive="active">
                 <mat-icon class="material-icons-round">admin_panel_settings</mat-icon>
                 <span>Admin</span>
             </button>
         </mat-menu>
     </div>
-    <div class="profile" *ngIf="user">
+    <div class="profile" *ngIf="authService.isLoggedIn">
         <div class="user-info">
-            <span class="firstname">{{user?.first_name}}</span>
-            <span class="plan">Plan <span class="plan-name">{{user?.plan}}</span></span>
+            <span class="firstname">{{authService.getUser().first_name}}</span>
+            <span class="plan">Plan <span class="plan-name">{{authService.getUser().plan}}</span></span>
         </div>
-        <a [matMenuTriggerFor]="settings" class="user-profile-photo"><img alt="User profile photo" src="{{user?.profile_photo_url}}"></a>
+        <a [matMenuTriggerFor]="settings" class="user-profile-photo"><img alt="User profile photo" src="{{authService.getUser().profile_photo_url}}"></a>
         <mat-menu #settings class="mat-menu">
             <button mat-menu-item>
                 <mat-icon class="material-icons-round">settings</mat-icon>
@@ -45,7 +45,7 @@
                 <mat-icon class="material-icons-round">dark_mode</mat-icon>
                 <span>Ciemny motyw</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="authService.logout()">
                 <mat-icon class="material-icons-round">logout</mat-icon>
                 <span>Wyloguj</span>
             </button>

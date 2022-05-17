@@ -6,6 +6,7 @@ import { EventsComponent, ExploreComponent, HotelsComponent, PaymentsComponent, 
 const mainRoutes = RoutesConfig.routesNames.main;
 
 const routes: Routes = [
+  { path: "", redirectTo: mainRoutes.tickets, pathMatch: "full" },
   { path: mainRoutes.tickets, component: TicketsComponent },
   { path: mainRoutes.transport, component: TransportComponent },
   { path: mainRoutes.events, component: EventsComponent },
