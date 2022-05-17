@@ -3,7 +3,7 @@ class AuthenticationController < ApplicationController
 
   def login
     if user&.authenticate(params[:password])
-      render json: { token: jwt_encode(user_id: user.id) }, status: :ok
+      render json: { token: jwt_encode(user.jwt_payload) }, status: :ok
     else
       render json: { error: "Unauthorized" }, status: :unauthorized
     end
