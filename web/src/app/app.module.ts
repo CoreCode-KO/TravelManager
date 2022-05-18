@@ -1,11 +1,12 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule, AuthModule, MainModule, PanelModule, RootModule } from './modules';
-import { AuthInterceptor, MobileNavbarComponent, NavigationComponent, SharedModule } from './shared';
+import { MobileNavbarComponent, NavigationComponent, SharedModule } from './shared';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { AuthInterceptor, MobileNavbarComponent, NavigationComponent, SharedModu
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     SharedModule,
     AuthModule,
     AdminModule,

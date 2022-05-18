@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RoutesConfig } from 'src/app/configs';
-import { RoleGuard } from 'src/app/shared';
+import { RoutesConfig } from 'src/app/shared';
+import { RoleGuard } from 'src/app/core';
 import { DashboardComponent, EditorComponent, EventsComponent, SettingsComponent, StatisticsComponent, SupportComponent, UsersComponent } from './pages';
 
 const panelRoutes = RoutesConfig.routesNames.panel;

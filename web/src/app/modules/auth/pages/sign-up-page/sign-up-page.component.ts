@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter } from '@angular/material/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/core';
 
 @Component({
   selector: 'app-sign-up-page',
