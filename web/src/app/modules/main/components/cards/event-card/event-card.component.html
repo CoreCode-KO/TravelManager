@@ -1,0 +1,10 @@
+<div class="event-card" *ngFor="let data of eventData">
+    <div class="cover">
+        <div class="price">{{data.price}}</div>
+        <img src="{{data.cover}}" alt="Event cover image">
+    </div>
+    <div class="event-content">
+        <span>{{data.date}}</span>
+        <h3>{{data.name}}</h3>
+    </div>
+</div>

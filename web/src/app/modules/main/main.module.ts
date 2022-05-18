@@ -8,6 +8,9 @@ import { EventsComponent } from './pages/events/events.component';
 import { HotelsComponent } from './pages/hotels/hotels.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
+import { SharedModule } from 'src/app/shared';
+import { CardComponent } from './components/cards/card/card.component';
+import { EventCardComponent } from './components/cards/event-card/event-card.component';
 
 
 @NgModule({
@@ -17,10 +20,13 @@ import { PaymentsComponent } from './pages/payments/payments.component';
     EventsComponent,
     HotelsComponent,
     ExploreComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    CardComponent,
+    EventCardComponent
   ],
   imports: [
     CommonModule,
+    SharedModule,
     MainRoutingModule
   ]
 })
