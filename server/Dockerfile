@@ -1,7 +1,7 @@
 FROM ruby:3.0.2-alpine
 
 ENV BUILD_PACKAGES="curl-dev ruby-dev build-base bash" \
-    DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev postgresql-dev" \
+    DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev postgresql-dev imagemagick" \
     RUBY_PACKAGES="ruby-json yaml nodejs"
 
 RUN apk update && \

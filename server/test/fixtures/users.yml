@@ -3,8 +3,8 @@
 one:
   first_name: MyString
   last_name: MyString
-  email: MyString
-  encrypted_password: MyString
+  email: MyString@email.pl
+  password_digest: MyString
   birth_date: 2022-05-16
   phone: MyString
   role: 1
@@ -12,8 +12,8 @@ one:
 two:
   first_name: MyString
   last_name: MyString
-  email: MyString
-  encrypted_password: MyString
+  email: MyString1@email.pl
+  password_digest: MyString
   birth_date: 2022-05-16
   phone: MyString
   role: 1

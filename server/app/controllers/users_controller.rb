@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_request, only: %i[create]
+  before_action :authenticate_request, except: %i[create]
   before_action :set_user, only: %i[show destroy]
   before_action :initialize_user, only: %i[create]
 
