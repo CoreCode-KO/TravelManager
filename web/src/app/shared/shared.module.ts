@@ -6,26 +6,21 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DemoMaterialModule } from './modules';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
     imports: [
-        CommonModule,
-        BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
         RouterModule,
         DemoMaterialModule,
     ],
     declarations: [
     ],
     exports: [
-        CommonModule,
-        BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
         RouterModule,
         DemoMaterialModule,
     ]

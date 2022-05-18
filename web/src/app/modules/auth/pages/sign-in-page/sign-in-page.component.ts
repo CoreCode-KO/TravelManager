@@ -35,7 +35,7 @@ export class SignInPageComponent {
   signIn() {
     if (this.signInForm.valid) {
       const formValue = this.signInForm.value;
-      this.authService.signIn();
+      this.authService.signIn(formValue);
     }
   }
 
