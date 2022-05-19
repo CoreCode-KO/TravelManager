@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthInterceptor } from './core';
 import { AdminModule, AuthModule, MainModule, PanelModule, RootModule } from './modules';
 import { MobileNavbarComponent, NavigationComponent, SharedModule } from './shared';
 

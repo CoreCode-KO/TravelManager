@@ -1,23 +1,21 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
-import { catchError, throwError } from 'rxjs';
-import { SignIn, SignUp } from '../models';
+import { SignIn, SignUp } from 'src/app/shared';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  endpoint: string = 'http://localhost:3000';
-
   constructor(private http: HttpClient, public router: Router, private _snackBar: MatSnackBar) { }
 
   signUp(user: SignUp) {
     return this.http
-      .post(`${this.endpoint}/users`, user)
+      .post(`${environment.apiEndpoint}/users`, user)
       .subscribe((res: any) => {
         console.log(res)
       });
@@ -25,7 +23,7 @@ export class AuthService {
 
   signIn(auth: SignIn) {
     return this.http
-      .post(`${this.endpoint}/auth/login`, auth)
+      .post(`${environment.apiEndpoint}/auth/login`, auth)
       .subscribe(
         (res: any) => {
           localStorage.setItem('access_token', res.token);

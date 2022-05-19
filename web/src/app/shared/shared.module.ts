@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     imports: [
         FormsModule,
-        BrowserAnimationsModule,
         ReactiveFormsModule,
         RouterModule,
         DemoMaterialModule,
@@ -20,7 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ],
     exports: [
         FormsModule,
-        BrowserAnimationsModule,
         ReactiveFormsModule,
         RouterModule,
         DemoMaterialModule,
