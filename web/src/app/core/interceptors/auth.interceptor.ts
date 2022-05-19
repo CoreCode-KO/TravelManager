@@ -3,9 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler } from "@angular/common/http"
 import { AuthService } from "../services";
 
 @Injectable()
-export class AuthInterceptor {
-    /*implements HttpInterceptor
-
+export class AuthInterceptor implements HttpInterceptor {
     constructor(private authService: AuthService) { }
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         const authToken = this.authService.getToken();
@@ -15,5 +13,5 @@ export class AuthInterceptor {
             }
         });
         return next.handle(req);
-    }*/
+    }
 }

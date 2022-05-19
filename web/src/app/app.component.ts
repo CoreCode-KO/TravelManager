@@ -8,7 +8,6 @@ import { AuthService, ThemeService } from './core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'web';
   routeMain: string = '';
   isPayments: boolean = false;
 

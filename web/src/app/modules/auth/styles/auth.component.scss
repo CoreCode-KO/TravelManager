@@ -97,6 +97,7 @@
         font-weight: 800;
         font-size: 20px;
         background-color: rgba(0, 0, 0, .5);
+        color: var(--white);
         z-index: 1;
     }
 
@@ -107,4 +108,8 @@
     #fileInput {
         display: none;
     }
+}
+
+.mat-input-element:disabled {
+    color: #000000;
 }

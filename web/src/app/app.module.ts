@@ -26,11 +26,11 @@ import { MobileNavbarComponent, NavigationComponent, SharedModule } from './shar
     PanelModule,
     RootModule,
   ],
-  providers: [/*{
+  providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }*/],
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
