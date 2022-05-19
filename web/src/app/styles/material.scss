@@ -81,3 +81,68 @@ $custom-typography: mat.define-typography-config($font-family: 'Nunito',
         font-weight: 600;
     }
 }
+
+.mat-form-field-disabled .mat-form-field-outline  {
+    color: rgba(0, 0, 0, 0.12) !important;
+}
+
+//Snackbars styling
+
+.snackbar-toast {
+    background: var(--main--color) !important;
+    color: var(--color) !important;
+    box-shadow: none !important;
+    padding: 10px 16px !important;
+
+    .mat-simple-snack-bar-content {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        gap: 15px;
+        font-weight: 700;
+        font-size: 15px;
+
+        &:before {
+            font-family: "Material Icons";
+            font-size: 30px;
+        }
+    }
+
+    .mat-button {
+        padding: 0 5px;
+
+        .mat-button-wrapper:before {
+            font-family: "Material Icons";
+            font-size: 25px;
+            content: "\e14c";
+            color: var(--accent--color);
+        }
+    }
+}
+
+.snackbar-success {
+    outline: 2px solid var(--green);
+
+    .mat-simple-snack-bar-content:before {
+        content: "\e86c";
+        color: var(--green);
+    }
+}
+
+.snackbar-info {
+    outline: 2px solid var(--blue);
+
+    .mat-simple-snack-bar-content:before {
+        content: "\e88e";
+        color: var(--blue);
+    }
+}
+
+.snackbar-error {
+    outline: 2px solid var(--orange);
+
+    .mat-simple-snack-bar-content:before {
+        content: "\e000";
+        color: var(--orange);
+    }
+}

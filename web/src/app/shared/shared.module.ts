@@ -1,12 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DemoMaterialModule } from './modules';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -15,6 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
         ReactiveFormsModule,
         RouterModule,
         DemoMaterialModule,
+        NgxMaskModule.forRoot(),
     ],
     declarations: [
     ],
@@ -23,6 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
         ReactiveFormsModule,
         RouterModule,
         DemoMaterialModule,
+        NgxMaskModule,
     ]
 })
 export class SharedModule { }

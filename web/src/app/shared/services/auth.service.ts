@@ -1,33 +1,45 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
 import { catchError, throwError } from 'rxjs';
-import { Auth, User } from '../models';
+import { SignIn, SignUp } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  endpoint: string = 'http://localhost:3000/users';
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  endpoint: string = 'http://localhost:3000';
 
-  constructor(private http: HttpClient, public router: Router) { }
+  constructor(private http: HttpClient, public router: Router, private _snackBar: MatSnackBar) { }
 
-  signUp(user: User) {
-    let api = `${this.endpoint}/rejestracja`;
-    this.http.post(api, user).pipe(catchError(this.handleError));
+  signUp(user: SignUp) {
+    return this.http
+      .post(`${this.endpoint}/users`, user)
+      .subscribe((res: any) => {
+        console.log(res)
+      });
   }
 
-  signIn(auth: Auth) {
+  signIn(auth: SignIn) {
     return this.http
-      .post<any>(`${this.endpoint}/login`, auth)
-      .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.token);
-        this.router.navigate(['/main']);
-      })
-      ;
+      .post(`${this.endpoint}/auth/login`, auth)
+      .subscribe(
+        (res: any) => {
+          localStorage.setItem('access_token', res.token);
+          this.router.navigate(['/main']);
+        },
+        error => {
+          if (error.status === 401) {
+            this._snackBar.open("Błędne dane logowania", ' ', {
+              duration: 3000,
+              panelClass: ['snackbar-toast', 'snackbar-error']
+            });
+          }
+        }
+      );
   }
 
   get isLoggedIn(): boolean {
@@ -57,17 +69,4 @@ export class AuthService {
     localStorage.removeItem('access_token');
     this.router.navigate(['/auth']);
   }
-
-  handleError(error: HttpErrorResponse) {
-    let msg = '';
-    if (error.error instanceof ErrorEvent) {
-      // client-side error
-      msg = error.error.message;
-    } else {
-      // server-side error
-      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    return throwError(msg);
-  }
-
 }
