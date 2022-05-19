@@ -9,17 +9,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
 
-  # rubocop:disable Metrics/MethodLength
-  def jwt_payload
-    {
-      user_id: id,
-      email: email,
-      first_name: first_name,
-      last_name: last_name,
-      birth_date: birth_date,
-      phone: phone,
-      role: role,
-    }
-  end
-  # rubocop:enable Metrics/MethodLength
+  has_many :brands, dependent: :destroy
 end

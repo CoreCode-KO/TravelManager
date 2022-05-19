@@ -1,0 +1,5 @@
+class CountryBlueprint < Blueprinter::Base
+  identifier :id
+
+  fields :name, :short_name
+end

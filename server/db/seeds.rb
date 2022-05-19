@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Country.find_or_create_by(name: "United Kingdom", short_name: "UK")
+Country.find_or_create_by(name: "Poland", short_name: "PL")
+
+Category.find_or_create_by(name: "TestCategory1")
+Category.find_or_create_by(name: "TestCategory2")
