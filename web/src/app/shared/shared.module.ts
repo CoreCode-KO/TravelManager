@@ -4,11 +4,13 @@ import { RouterModule } from '@angular/router';
 
 import { DemoMaterialModule } from './modules';
 import { NgxMaskModule } from 'ngx-mask';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
     imports: [
         FormsModule,
+        BrowserAnimationsModule,
         ReactiveFormsModule,
         RouterModule,
         DemoMaterialModule,
@@ -18,6 +20,7 @@ import { NgxMaskModule } from 'ngx-mask';
     ],
     exports: [
         FormsModule,
+        BrowserAnimationsModule,
         ReactiveFormsModule,
         RouterModule,
         DemoMaterialModule,

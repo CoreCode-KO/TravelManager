@@ -16,7 +16,6 @@ import { AuthInterceptor, MobileNavbarComponent, NavigationComponent, SharedModu
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
