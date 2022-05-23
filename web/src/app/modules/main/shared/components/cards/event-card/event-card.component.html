@@ -1,0 +1,16 @@
+<div class="event-card" *ngFor="let data of eventData" mat-ripple>
+    <div class="verification" *ngIf="data.verified">
+        <mat-icon class="material-icons-round">verified</mat-icon>
+    </div>
+    <div class="cover">
+        <div class="price">
+            <span [outerHTML]="data.price | currencychange"></span>
+        </div>
+        <img class="cover-photo" src="{{data.cover}}" alt="Event cover image">
+    </div>
+    <div class="event-content">
+        <span [outerHTML]="data.date | eventdate"></span>
+        <div class="vertical-line"></div>
+        <h2>{{data.name}}</h2>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="ticket-card" *ngFor="let data of eventData" matRipple [ngClass]="{'ticket-event': data.type === 'event'}">
+    <div *ngIf="data.type !== 'event'">
+        <div>
+            <div class="transport-header" *ngIf="transport.includes(data.type)">
+                <h1 class="from" *ngIf="data.type === 'airplane'">{{data.from}}</h1>
+                <span class="from-point" *ngIf="data.type !== 'airplane'">
+                    <mat-icon class="material-icons-round">my_location</mat-icon>
+                    <span>{{data.from}}</span>
+                </span>
+                <div class="details">
+                    <mat-icon *ngIf="data.type === 'airplane'" class="material-icons-round airplane">flight</mat-icon>
+                    <mat-icon *ngIf="data.type === 'boat'" class="material-icons-round">directions_boat</mat-icon>
+                    <mat-icon *ngIf="data.type === 'public'" class="material-icons-round">directions_bus_filled</mat-icon>
+                    <mat-icon *ngIf="data.type === 'train'" class="material-icons-round">train</mat-icon>
+                    <mat-icon *ngIf="data.type === 'taxi'" class="material-icons-round">local_taxi</mat-icon>
+                </div>
+                <h1 class="to" *ngIf="data.type === 'airplane'">{{data.to}}</h1>
+                <span class="to-point" *ngIf="data.type !== 'airplane'">
+                    <span>{{data.to}}</span>
+                    <mat-icon class="material-icons-round">my_location</mat-icon>
+                </span>
+            </div>
+            <div class="header" *ngIf="!transport.includes(data.type)">
+                <mat-icon *ngIf="data.type === 'hotel'" class="material-icons-round">hotel</mat-icon>
+                <mat-icon *ngIf="data.type === 'club'" class="material-icons-round">nightlife</mat-icon>
+                <mat-icon *ngIf="data.type === 'restaurant'" class="material-icons-round">restaurant</mat-icon>
+                <mat-icon *ngIf="data.type === 'parking'" class="material-icons-round">local_parking</mat-icon>
+                <mat-icon *ngIf="data.type === 'monuments'" class="material-icons-round">park</mat-icon>
+                <mat-icon *ngIf="data.type === 'entertainment'" class="material-icons-round">attractions</mat-icon>
+                <mat-icon *ngIf="data.type === 'sports'" class="material-icons-round">sports_soccer</mat-icon>
+                <span class="header-name">{{data.name}}</span>
+            </div>
+            <div class="horizontal-line-dashed"></div>
+        </div>
+        <div class="more ticket-more">
+            <div class="content">
+                <div class="section" *ngFor="let content of data.contentSmall" [ngClass]="{'single-section': data.contentSmall.length === 1}">
+                    <span class="category">{{content.category}}</span>
+                    <span class="value">{{content.value | datelocale}}</span>
+                </div>
+            </div>
+            <div class="content content-big">
+                <div class="section" *ngFor="let content of data.contentBig">
+                    <span class="category">{{content.category}}</span>
+                    <span class="value">{{content.value | datelocale}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer ticket-footer">
+            <div class="horizontal-line-dashed"></div>
+            <div class="footer-cont">
+                <div class="brand" *ngFor="let brand of data.brand" [ngStyle]="{'background-color': '#'+brand.brandColor}">
+                    <img [src]="brand.logo" alt="Brand Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="data.type === 'event'" style="height: 100%;">
+        <div class="cover">
+            <div class="price">
+                <span class="time">{{data.date | datelocale}}</span>
+            </div>
+            <img class="cover-photo" src="{{data.cover}}" alt="Event cover image">
+        </div>
+        <div class="event-content">
+            <span [outerHTML]="data.date | eventdate"></span>
+            <div class="vertical-line"></div>
+            <h2>{{data.name}}</h2>
+        </div>
+    </div>
+</div>

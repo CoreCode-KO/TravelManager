@@ -4,8 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { DemoMaterialModule } from './modules';
 import { NgxMaskModule } from 'ngx-mask';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { DateLocalePipe } from './pipes';
 
 @NgModule({
     imports: [
@@ -16,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         NgxMaskModule.forRoot(),
     ],
     declarations: [
+        DateLocalePipe,
     ],
     exports: [
         FormsModule,
@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         RouterModule,
         DemoMaterialModule,
         NgxMaskModule,
+        DateLocalePipe,
     ]
 })
 export class SharedModule { }

@@ -1,0 +1,28 @@
+<div class="place-card" *ngFor="let data of eventData">
+    <div class="verification" *ngIf="data.verified">
+        <mat-icon class="material-icons-round">verified</mat-icon>
+    </div>
+    <div class="cover">
+        <div class="hours" matRipple>
+            <span>{{data.hoursO | todayhours}}</span>
+        </div>
+        <swiper [config]="config">
+            <div class="swiper-wrapper">
+                <img class="swiper-slide" *ngFor="let img of data.photos" [src]="img.url" />
+            </div>
+            <div class="next-photo">
+                <mat-icon class="material-icons-round">navigate_next</mat-icon>
+            </div>
+            <div class="prev-photo">
+                <mat-icon class="material-icons-round">navigate_before</mat-icon>
+            </div>
+        </swiper>
+    </div>
+    <div class="place-content" matRipple>
+        <div>
+            <h2>{{data.name}}</h2>
+            <span class="distance">200m</span>
+        </div>
+        <span class="price">od.<span [outerHTML]="data.priceL | currencychange"></span></span>
+    </div>
+</div>

@@ -1,5 +1,18 @@
 @import 'theme';
 @import 'colors';
 @import 'typography';
+@import 'pipes';
+
+.vertical-line {
+    width: 1px;
+    height: 100%;
+    background-color: var(--accent--color);
+    border-radius: 10px;
+}
+
+.cover .swiper-container {
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
 
 @import 'material';

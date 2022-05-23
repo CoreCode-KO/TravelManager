@@ -1,0 +1,50 @@
+<div class="transport-card" *ngFor="let data of eventData" matRipple>
+    <div>
+        <div class="transport-header">
+            <h1 class="from" *ngIf="data.type === 'airplane'">{{data.from}}</h1>
+            <span class="from-point" *ngIf="data.type !== 'airplane'">
+                <mat-icon class="material-icons-round">my_location</mat-icon>
+                <span>{{data.from}}</span>
+            </span>
+            <div class="details">
+                <mat-icon *ngIf="data.type === 'airplane'" class="material-icons-round airplane">flight</mat-icon>
+                <mat-icon *ngIf="data.type === 'boat'" class="material-icons-round">directions_boat</mat-icon>
+                <mat-icon *ngIf="data.type === 'public'" class="material-icons-round">directions_bus_filled</mat-icon>
+                <mat-icon *ngIf="data.type === 'train'" class="material-icons-round">train</mat-icon>
+                <mat-icon *ngIf="data.type === 'taxi'" class="material-icons-round">local_taxi</mat-icon>
+                <span class="duration">{{data.duration}}</span>
+            </div>
+            <h1 class="to" *ngIf="data.type === 'airplane'">{{data.to}}</h1>
+            <span class="to-point" *ngIf="data.type !== 'airplane'">
+                <span>{{data.to}}</span>
+                <mat-icon class="material-icons-round">my_location</mat-icon>
+            </span>
+        </div>
+        <div class="horizontal-line-dashed"></div>
+    </div>
+    <div class="more">
+        <div class="content">
+            <div class="section" *ngFor="let content of data.content">
+                <span class="category">{{content.category}}</span>
+                <span class="value">{{content.value | datelocale}}</span>
+            </div>
+        </div>
+        <div class="tags">
+            <div class="tag" *ngFor="let tag of data.tags.slice(0, 2)">{{tag.name}}</div>
+            <span class="count-tags">
+                +{{data.tags.length - 2}}
+            </span>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="horizontal-line-dashed"></div>
+        <div class="footer-cont">
+            <div class="brand" *ngFor="let brand of data.brand" [ngStyle]="{'background-color': '#'+brand.brandColor}">
+                <img [src]="brand.logo" alt="Brand Logo">
+            </div>
+            <div class="price">
+                <span [outerHTML]="data.price | currencychange"></span>
+            </div>
+        </div>
+    </div>
+</div>
