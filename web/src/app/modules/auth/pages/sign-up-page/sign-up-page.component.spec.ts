@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from 'src/app/shared';
 
 import { SignUpPageComponent } from './sign-up-page.component';
 
@@ -8,9 +11,14 @@ describe('SignUpPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SignUpPageComponent ]
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        SharedModule
+      ],
+      declarations: [SignUpPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

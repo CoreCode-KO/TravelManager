@@ -3,26 +3,8 @@
 @import "@angular/material/theming";
 @include mat-core();
 
-$mat-primary-scheme: (100: #c5cae9,
-    500: #61699a,
-    700: #303f9f,
-    contrast: (100: rgba(0, 0, 0, 0.87),
-        500: #000000,
-        700: #000000,
-    ),
-);
-
-$mat-accent-scheme: (100: #ff80ab,
-    500: #ff4081,
-    700: #f50057,
-    contrast: (100: rgba(0, 0, 0, 0.87),
-        500: rgba(0, 0, 0, 0.87),
-        700: #ffffff,
-    ),
-);
-
-$mat-primary-palette: mat-palette($mat-primary-scheme);
-$mat-accent-palette: mat-palette($mat-accent-scheme);
+$mat-primary-palette: mat-palette(mat.$indigo-palette, 500);
+$mat-accent-palette: mat-palette(mat.$pink-palette, A200, A100, A400);
 
 $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
 $app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
@@ -97,5 +79,70 @@ $custom-typography: mat.define-typography-config($font-family: 'Nunito',
     span {
         font-size: 16px;
         font-weight: 600;
+    }
+}
+
+.mat-form-field-disabled .mat-form-field-outline  {
+    color: rgba(0, 0, 0, 0.12) !important;
+}
+
+//Snackbars styling
+
+.snackbar-toast {
+    background: var(--main--color) !important;
+    color: var(--color) !important;
+    box-shadow: none !important;
+    padding: 10px 16px !important;
+
+    .mat-simple-snack-bar-content {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        gap: 15px;
+        font-weight: 700;
+        font-size: 15px;
+
+        &:before {
+            font-family: "Material Icons";
+            font-size: 30px;
+        }
+    }
+
+    .mat-button {
+        padding: 0 5px;
+
+        .mat-button-wrapper:before {
+            font-family: "Material Icons";
+            font-size: 25px;
+            content: "\e14c";
+            color: var(--accent--color);
+        }
+    }
+}
+
+.snackbar-success {
+    outline: 2px solid var(--green);
+
+    .mat-simple-snack-bar-content:before {
+        content: "\e86c";
+        color: var(--green);
+    }
+}
+
+.snackbar-info {
+    outline: 2px solid var(--blue);
+
+    .mat-simple-snack-bar-content:before {
+        content: "\e88e";
+        color: var(--blue);
+    }
+}
+
+.snackbar-error {
+    outline: 2px solid var(--orange);
+
+    .mat-simple-snack-bar-content:before {
+        content: "\e000";
+        color: var(--orange);
     }
 }

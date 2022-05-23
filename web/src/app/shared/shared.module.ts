@@ -1,32 +1,30 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DemoMaterialModule } from './modules';
+import { NgxMaskModule } from 'ngx-mask';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
     imports: [
-        CommonModule,
         FormsModule,
+        BrowserAnimationsModule,
         ReactiveFormsModule,
-        HttpClientModule,
         RouterModule,
         DemoMaterialModule,
+        NgxMaskModule.forRoot(),
     ],
     declarations: [
     ],
     exports: [
-        CommonModule,
         FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        RouterModule,
         BrowserAnimationsModule,
+        ReactiveFormsModule,
+        RouterModule,
         DemoMaterialModule,
+        NgxMaskModule,
     ]
 })
 export class SharedModule { }

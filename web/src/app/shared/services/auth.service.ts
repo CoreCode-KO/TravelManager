@@ -1,19 +1,45 @@
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
+import { catchError, throwError } from 'rxjs';
+import { SignIn, SignUp } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(public router: Router) { }
+  endpoint: string = 'http://localhost:3000';
 
-  token: string = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ3eEBleC5wbCIsInBob25lIjoiMDkxMjMyODc1IiwiZmlyc3RfbmFtZSI6Ik1pY2hhxYIiLCJwbGFuIjoiUG9kcsOzxbxuaWsiLCJyb2xlIjoidXNlciIsInByb2ZpbGVfcGhvdG9fdXJsIjoiaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MjI1Mjk1OTkxMDItMTkzYzBkNzZiNWI2P2l4bGliPXJiLTEuMi4xJml4aWQ9TW53eE1qQTNmREI4TUh4d2FHOTBieTF3WVdkbGZIeDhmR1Z1ZkRCOGZIeDgmYXV0bz1mb3JtYXQmZml0PWNyb3Amdz0xMTcwJnE9ODAiLCJjb21wYW55X2RhdGEiOlt7ImlkIjoiMSIsInR5cGUiOiJicmFuZCIsInJvbGUiOiJvd25lciIsIm5hbWUiOiJCaXpuZXMifV19.W1V9Dy3I9ausiNqLvmMxGEp8l7w-_MnmF0hq1H_sxnTl35MYESDkxAOa6p1uTW11hEDmRIIrBJMlbM1ykq9pwXBVIh70w0RW-BM34TVG4CzGpy9rJnoKOy11VFS-VShNdgLbXusy7-R1GtSLTBrq8kXmN8m2Sjv20kZKKKNKwk8xYhhrAXgj3IVmBo8XqGMoC27nuGENszoyouCwKpcEgFPRw12vRh3gWPRDGY4kQ3DylKw_7zWi2fzrwLqlbDBLOv293z-kD915oqkdB8-KFvQUn_E49NZHYJ2nvbVQv2wxol26QVEqOJvwV9G1vOzRBtgMrcHrUuCF0q9Fw45Fsg";
+  constructor(private http: HttpClient, public router: Router, private _snackBar: MatSnackBar) { }
 
-  signIn() {
-    localStorage.setItem('user', this.token);
-    this.router.navigate(['/main']);
+  signUp(user: SignUp) {
+    return this.http
+      .post(`${this.endpoint}/users`, user)
+      .subscribe((res: any) => {
+        console.log(res)
+      });
+  }
+
+  signIn(auth: SignIn) {
+    return this.http
+      .post(`${this.endpoint}/auth/login`, auth)
+      .subscribe(
+        (res: any) => {
+          localStorage.setItem('access_token', res.token);
+          this.router.navigate(['/main']);
+        },
+        error => {
+          if (error.status === 401) {
+            this._snackBar.open("Błędne dane logowania", ' ', {
+              duration: 3000,
+              panelClass: ['snackbar-toast', 'snackbar-error']
+            });
+          }
+        }
+      );
   }
 
   get isLoggedIn(): boolean {
@@ -24,7 +50,11 @@ export class AuthService {
   }
 
   getUser() {
-    return this.decodeToken(localStorage.getItem('user')!);
+    return this.decodeToken(this.getToken()!);
+  }
+
+  getToken() {
+    return localStorage.getItem('access_token');
   }
 
   decodeToken(token: string): any {
@@ -36,8 +66,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('access_token');
     this.router.navigate(['/auth']);
   }
-
 }

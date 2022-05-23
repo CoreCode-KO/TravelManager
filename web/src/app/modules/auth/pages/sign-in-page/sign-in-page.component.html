@@ -1,3 +1,22 @@
-<p>sign-in-page works!</p>
-<button (click)="authService.signIn()">Zaloguj</button>
-
+<div class="auth-content">
+    <div class="auth-side">
+        <form class="auth-form" [formGroup]="signInForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Wprowadź adres email</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Wprowadź hasło</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error>
+            </mat-form-field>
+            <button mat-flat-button color="primary" class="submit-btn" (click)="signIn()">Zaloguj Się</button>
+            <a href="#" class="password-link">Zapomniałeś hasła?</a>
+        </form>
+        <span class="register-link">Nie masz jeszcze konta? <a routerLink="/auth/sign-up">Zarejestruj się!</a></span>
+    </div>
+</div>

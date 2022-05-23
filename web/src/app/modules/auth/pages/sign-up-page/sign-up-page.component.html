@@ -1,1 +1,48 @@
-<p>sign-up-page works!</p>
+<div class="auth-content">
+    <div class="auth-side sign-up">
+        <form class="auth-form" [formGroup]="signUpForm">
+            <div class="profile-img">
+                <label class="hoverable" for="fileInput">
+                    <img [src]="url">
+                    <div class="hover-text">Wybierz Plik</div>
+                    <div class="background"></div>
+                </label>
+                <input id="fileInput" type='file' (change)="onSelectFile($event)">
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Podaj swoje imię</mat-label>
+                <input matInput placeholder="Adam" [formControl]="firstname">
+                <mat-error *ngIf="firstname.invalid">{{getErrorMessage('firstname')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Podaj swoje nazwisko</mat-label>
+                <input matInput placeholder="Kowalski" [formControl]="lastname">
+                <mat-error *ngIf="lastname.invalid">{{getErrorMessage('lastname')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Podaj swoją datę urodzenia</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="brith_date" [max]="today" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker [disabled]="false"></mat-datepicker>
+                <mat-error *ngIf="brith_date.invalid">{{getErrorMessage('brith_date')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Wprowadź adres email</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="email">
+                <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Wprowadź numer telefonu</mat-label>
+                <input matInput placeholder="000 000 000" [formControl]="phone" mask="000 000 000">
+                <mat-error *ngIf="phone.invalid">{{getErrorMessage('phone')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Wprowadź hasło</mat-label>
+                <input matInput [formControl]="password">
+                <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error>
+            </mat-form-field>
+            <button mat-flat-button color="primary" class="submit-btn" (click)="signUp()">Zarejestruj Się</button>
+        </form>
+        <span class="register-link">Masz już konto? <a routerLink="/auth/sign-in">Zaloguj się!</a></span>
+    </div>
+</div>
