@@ -1,0 +1,74 @@
+<div class="ticket-content" *ngFor="let data of ticketData">
+    <div class="ticket-header" *ngFor="let brand of data.brand" [ngStyle]="{'background-color': '#'+brand.brandColor}">
+        <img class="brand-logo" [src]="brand.logo" alt="Brand Logo">
+        <h3 class="ticket-type">{{data.type}}</h3>
+    </div>
+    <div class="ticket-main transport-main">
+        <div class="airplane-from" *ngIf="data.category === 'airplane'">
+            <h1 class="from">{{data.fromShort}}</h1>
+            <h3 class="from-full">{{data.from}}</h3>
+        </div>
+        <span class="from-point" *ngIf="data.category !== 'airplane'">
+            <mat-icon class="material-icons-round">my_location</mat-icon>
+            <span>{{data.from}}</span>
+        </span>
+        <div class="details">
+            <mat-icon *ngIf="data.category === 'airplane'" class="material-icons-round airplane">flight</mat-icon>
+            <mat-icon *ngIf="data.category === 'boat'" class="material-icons-round">directions_boat</mat-icon>
+            <mat-icon *ngIf="data.category === 'public'" class="material-icons-round">directions_bus_filled</mat-icon>
+            <mat-icon *ngIf="data.category === 'train'" class="material-icons-round">train</mat-icon>
+            <mat-icon *ngIf="data.category === 'taxi'" class="material-icons-round">local_taxi</mat-icon>
+            <span class="duration">{{data.duration}}</span>
+        </div>
+        <div class="airplane-to" *ngIf="data.category === 'airplane'">
+            <h1 class="to">{{data.toShort}}</h1>
+            <h3 class="to-full">{{data.to}}</h3>
+        </div>
+        <span class="to-point" *ngIf="data.category !== 'airplane'">
+            <span>{{data.to}}</span>
+            <mat-icon class="material-icons-round">my_location</mat-icon>
+        </span>
+    </div>
+    <div class="ticket-data">
+        <div class="horizontal-line-dashed">
+            Najważniejsze
+        </div>
+        <div class="content" *ngFor="let content of data.main">
+            <div class="section" *ngFor="let section of content.first" [ngClass]="{'single-section': content.first.length === 1}">
+                <span class="category">{{section.category}}</span>
+                <span class="value">{{section.value | datelocale}}</span>
+            </div>
+            <div class="section section-big" *ngFor="let section of content.second" [ngClass]="{'single-section': content.second.length === 1}">
+                <span class="category">{{section.category}}</span>
+                <span class="value">{{section.value | datelocale}}</span>
+            </div>
+            <div class="section" *ngFor="let section of content.third" [ngClass]="{'single-section': content.third.length === 1}">
+                <span class="category">{{section.category}}</span>
+                <span class="value">{{section.value | datelocale}}</span>
+            </div>
+        </div>
+        <div class="horizontal-line-dashed">
+            Szczegóły
+        </div>
+    </div>
+    <div class="ticket-details">
+        <div class="content">
+            <div class="section" *ngFor="let content of data.details" [ngClass]="{'single-section': content.length === 1}">
+                <span class="category">{{content.category}}</span>
+                <span class="value">{{content.value}}
+                    <mat-icon *ngIf="content.more" class="material-icons-round">help_outline</mat-icon>
+                </span>
+            </div>
+        </div>
+        <img class="ticket-bar-code" [src]="data.barCode" alt="Ticket Bar Code">
+        <div class="content">
+            <div class="section">
+                <span class="category">Numer Biletu</span>
+                <span class="value">{{data.ticketNumber}}</span>
+            </div>
+            <div class="section provider-section" *ngFor="let provider of data.provider">
+                <img class="ticket-provider-logo" [src]="provider.logo" alt="Ticket Provider Logo">
+            </div>
+        </div>
+    </div>
+</div>

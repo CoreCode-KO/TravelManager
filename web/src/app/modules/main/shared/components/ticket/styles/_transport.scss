@@ -1,0 +1,111 @@
+.transport-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .airplane-from,
+    .airplane-to {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .from-full,
+        .to-full {
+            color: var(--accent--color);
+        }
+    }
+
+    .from {
+        font-size: 30px;
+        color: var(--primary--color);
+    }
+
+    .from-point {
+        span {
+            margin-left: 10px;
+        }
+
+        mat-icon {
+            color: var(--primary--color);
+        }
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        mat-icon {
+            font-size: 30px;
+            width: 30px;
+            height: 30px;
+            color: var(--accent--color);
+
+            &.airplane {
+                transform: rotate(90deg);
+            }
+        }
+
+        .duration {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--half--color);
+        }
+    }
+
+    .to {
+        font-size: 30px;
+        color: var(--secondary--color);
+    }
+
+    .to-point {
+        span {
+            margin-right: 10px;
+        }
+
+        mat-icon {
+            color: var(--secondary--color);
+        }
+    }
+
+    .to-point,
+    .from-point {
+        color: var(--half--color);
+        font-weight: 600;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+
+        span {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 110px;
+            animation: floatText 15s infinite;
+        }
+
+        mat-icon {
+            font-size: 15px;
+            width: 15px;
+            height: 15px;
+        }
+    }
+}
+
+
+@keyframes floatText {
+    0% {
+        text-indent: 0;
+    }
+
+    60% {
+        text-indent: 0;
+    }
+
+    80% {
+        text-indent: -100%;
+    }
+
+    100% {
+        text-indent: 0;
+    }
+}

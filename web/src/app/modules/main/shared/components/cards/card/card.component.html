@@ -1,4 +1,4 @@
-<div class="card" [ngClass]="{'place' : cardType === 'place'}">
+<div class="card" [ngClass]="{'place' : cardType === 'place', 'active-card': active === true}">
     <event-card *ngIf="cardType === 'event'" [eventData]="cardData"></event-card>
     <place-card *ngIf="cardType === 'place'" [eventData]="cardData"></place-card>
     <hotel-card *ngIf="cardType === 'hotel'" [eventData]="cardData"></hotel-card>
@@ -8,5 +8,10 @@
     <button class="hover-more" mat-ripple matRippleColor="rgba(128, 128, 128, .2)">
         <mat-icon class="material-icons-round">bolt</mat-icon>
         Szczegóły
+    </button>
+
+    <button class="hover-more active-inf" *ngIf="active">
+        <mat-icon class="material-icons-round">visibility</mat-icon>
+        Otwarto
     </button>
 </div>

@@ -1,4 +1,35 @@
 .main-content {
-    overflow-y: auto;
+    display: flex;
+    padding: 20px;
     height: 100%;
+    box-sizing: border-box;
+}
+
+.tickets-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.component-side {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.sides-separate {
+    margin: 0 40px;
+}
+
+.side-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+@media screen and (max-width: 800px) {
+    .main-content {
+        padding: 10px 10px 0;
+    }
 }

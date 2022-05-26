@@ -9,6 +9,7 @@ export class CardComponent implements OnInit {
 
   @Input() cardType: string = '';
   @Input() cardData: any[] = [];
+  @Input() active: boolean = false;
 
   constructor() { }
 

@@ -9,13 +9,13 @@ import { HotelsComponent } from './pages/hotels/hotels.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { SharedModule } from 'src/app/shared';
-import { CardComponent, EventCardComponent } from './shared/components';
+import { CardComponent, EventCardComponent, HotelCardComponent, PlaceCardComponent, TicketCardComponent, TransportCardComponent } from './shared/components';
 import { CurrencyChangePipe, EventDatePipe, TodayHoursPipe } from './shared/pipes';
-import { PlaceCardComponent } from './shared/components/cards/place-card/place-card.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
-import { HotelCardComponent } from './shared/components/cards/hotel-card/hotel-card.component';
-import { TransportCardComponent } from './shared/components/cards/transport-card/transport-card.component';
-import { TicketCardComponent } from './shared/components/cards/ticket-card/ticket-card.component';
+import { TicketComponent } from './shared/components/ticket/ticket.component';
+import { TransportTicketComponent } from './shared/components/ticket/transport-ticket/transport-ticket.component';
+import { EventTicketComponent } from './shared/components/ticket/event-ticket/event-ticket.component';
+import { NeutralTicketComponent } from './shared/components/ticket/neutral-ticket/neutral-ticket.component';
 
 
 @NgModule({
@@ -35,6 +35,10 @@ import { TicketCardComponent } from './shared/components/cards/ticket-card/ticke
     HotelCardComponent,
     TransportCardComponent,
     TicketCardComponent,
+    TicketComponent,
+    TransportTicketComponent,
+    EventTicketComponent,
+    NeutralTicketComponent,
   ],
   imports: [
     CommonModule,

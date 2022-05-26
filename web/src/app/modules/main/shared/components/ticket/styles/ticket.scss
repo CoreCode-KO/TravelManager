@@ -1,0 +1,220 @@
+@import 'transport';
+
+
+.ticket,
+transport-ticket,
+event-ticket {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.ticket::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url(https://cdn.pixabay.com/photo/2014/03/25/16/34/world-map-297446_960_720.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.ticket-bg {
+    z-index: -1;
+    opacity: .2;
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+}
+
+.ticket-content {
+    max-width: 400px;
+    height: 100%;
+    width: 100%;
+    background-color: var(--main--color--80);
+    box-shadow: var(--main--shadow);
+    outline: var(--main--outline);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-header {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    user-select: none;
+
+    .brand-logo {
+        height: 18px;
+        width: auto;
+        filter: brightness(0) invert(1);
+    }
+
+    .ticket-type {
+        color: var(--white);
+        text-transform: capitalize;
+    }
+}
+
+.cover-header {
+    align-items: flex-start;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 150px;
+    box-shadow: inset 0px 40px 20px 0px rgb(0 0 0 / 30%);
+    box-sizing: border-box;
+}
+
+.ticket-main {
+    padding: 20px;
+    user-select: none;
+}
+
+.neutral-main {
+    padding: 10px 20px 5px;
+
+    .ticket-name {
+        color: var(--primary--color);
+    }
+
+    .ticket-place {
+        color: var(--half--color);
+    }
+}
+
+.neutral-w-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        color: var(--half--color);
+    }
+}
+
+
+.ticket-data {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.content {
+    display: flex;
+    justify-content: space-between;
+
+    .section {
+        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+
+        .category {
+            color: var(--half--color);
+            font-size: 12px;
+            user-select: none;
+        }
+
+        .value {
+            font-size: 16px;
+        }
+    }
+
+    .single-section {
+        text-align: center !important;
+    }
+
+    .section-big {
+        .category {
+            font-size: 16px;
+        }
+
+        .value {
+            font-size: 20px;
+        }
+    }
+}
+
+.ticket-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+
+    .content {
+        .section {
+            text-align: start;
+
+            .value {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                mat-icon {
+                    font-size: 16px;
+                    width: 16px;
+                    height: 16px;
+                    color: var(--primary--color);
+                    cursor: pointer;
+                }
+            }
+
+            &.single-section {
+                text-align: start !important;
+
+                .value {
+                    justify-content: flex-start !important;
+                }
+            }
+
+            &:nth-last-child(1) {
+                text-align: end;
+
+                .value {
+                    justify-content: flex-end;
+                }
+            }
+        }
+
+        .provider-section {
+            align-items: flex-end;
+
+            .ticket-provider-logo {
+                width: 50%;
+            }
+        }
+    }
+
+    .ticket-bar-code {
+        width: 100%;
+        height: 70px;
+        object-fit: cover;
+    }
+}
+
+
+@media all and (max-height: 750px) {
+    .ticket {
+        height: auto;
+    }
+}

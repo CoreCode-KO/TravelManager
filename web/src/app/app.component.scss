@@ -14,6 +14,10 @@
         top: 0;
     }
 
+    .pages {
+        height: calc(100% - 50px);
+    }
+
     .pages.payments {
         top: 50px;
         height: calc(100% - 100px);

@@ -1,5 +1,25 @@
 <div class="main-content">
-    <div class="cards">
+    <div class="tickets-side">
+        <div class="side-header">
+            <h1>Moje Bilety</h1>
+            <span class="category" matRipple>Najbliższe</span>
+        </div>
+        <div class="cards">
+            <card [active]="true" cardType="ticket" [cardData]="ticketData"></card>
+            <card cardType="ticket" [cardData]="ticketData"></card>
+            <card cardType="ticket" [cardData]="ticketData"></card>
+        </div>
+
+    </div>
+    <div class="vertical-dashed-line sides-separate"></div>
+    <div class="component-side">
+        <div class="side-header">
+            <h1>Szczegóły</h1>
+        </div>
+        <ticket ticketType="hotel" ticketID="1"></ticket>
+    </div>
+
+    <!--<div class="cards">
         <card cardType="event" [cardData]="eventData"></card>
 
         <card cardType="place" [cardData]="placeData"></card>
@@ -9,6 +29,5 @@
         <card cardType="transport" [cardData]="transportData"></card>
     
         <card cardType="ticket" [cardData]="ticketData"></card>
-    </div>
+    </div>-->
 </div>
-
