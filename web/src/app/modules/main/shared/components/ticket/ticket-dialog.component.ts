@@ -1,15 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, Inject, Input } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'ticket',
+  selector: 'ticket-dialog',
   templateUrl: './ticket.component.html',
   styleUrls: ['./styles/ticket.scss']
 })
-export class TicketComponent {
-
-  @Input() ticketDataType: string = '';
-  @Input() ticketID: string = '';
+export class TicketDialogComponent {
 
   ticketData: any[] = [];
 
@@ -211,17 +208,18 @@ export class TicketComponent {
     "barCode": "https://static.vecteezy.com/system/resources/previews/001/199/360/original/barcode-png.png"
   }]
 
-  ticketType: string = '';
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  constructor() { }
+  ticketType: string = '';
+  ticketID: string = this.data.ticketID;
 
   transport: any[] = ["airplane", "boat", "public", "train", "taxi"];
 
-  ngOnChanges() {
-    if (this.transport.includes(this.ticketDataType)) {
+  ngOnInit() {
+    if (this.transport.includes(this.data.ticketType)) {
       this.ticketType = 'transport';
       this.ticketData = this.transportData;
-    } else if (this.ticketDataType === 'event') {
+    } else if (this.data.ticketType === 'event') {
       this.ticketType = 'event';
       this.ticketData = this.eventData;
     } else {
@@ -229,4 +227,5 @@ export class TicketComponent {
       this.ticketData = this.neutralData;
     }
   }
+
 }

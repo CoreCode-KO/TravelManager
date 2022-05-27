@@ -27,15 +27,13 @@ event-ticket {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: 1;
 }
 
-.ticket-bg {
-    z-index: -1;
-    opacity: .2;
-    width: 100%;
-    pointer-events: none;
-    user-select: none;
+neutral-ticket,
+event-ticket,
+transport-ticket {
+    z-index: 2;
 }
 
 .ticket-content {
@@ -212,9 +210,26 @@ event-ticket {
     }
 }
 
+.mobile-actions {
+    display: none;
+}
 
 @media all and (max-height: 750px) {
     .ticket {
         height: auto;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .mobile-actions {
+        display: flex;
+        padding: 0 20px;
+        justify-content: flex-end;
+
+        button {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--half--color);
+        }
     }
 }

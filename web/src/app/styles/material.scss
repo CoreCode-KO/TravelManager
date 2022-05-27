@@ -82,7 +82,7 @@ $custom-typography: mat.define-typography-config($font-family: 'Nunito',
     }
 }
 
-.mat-form-field-disabled .mat-form-field-outline  {
+.mat-form-field-disabled .mat-form-field-outline {
     color: rgba(0, 0, 0, 0.12) !important;
 }
 
@@ -144,5 +144,21 @@ $custom-typography: mat.define-typography-config($font-family: 'Nunito',
     .mat-simple-snack-bar-content:before {
         content: "\e000";
         color: var(--orange);
+    }
+}
+
+
+.full-screen-modal .mat-dialog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    align-items: center;
+    border-radius: 0;
+}
+
+@media all and (max-height: 700px) {
+    .full-screen-modal .mat-dialog-container {
+        justify-content: flex-start;
     }
 }

@@ -16,6 +16,7 @@ import { TicketComponent } from './shared/components/ticket/ticket.component';
 import { TransportTicketComponent } from './shared/components/ticket/transport-ticket/transport-ticket.component';
 import { EventTicketComponent } from './shared/components/ticket/event-ticket/event-ticket.component';
 import { NeutralTicketComponent } from './shared/components/ticket/neutral-ticket/neutral-ticket.component';
+import { TicketDialogComponent } from './shared/components/ticket/ticket-dialog.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { NeutralTicketComponent } from './shared/components/ticket/neutral-ticke
     TransportCardComponent,
     TicketCardComponent,
     TicketComponent,
+    TicketDialogComponent,
     TransportTicketComponent,
     EventTicketComponent,
     NeutralTicketComponent,

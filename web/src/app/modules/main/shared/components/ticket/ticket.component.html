@@ -3,3 +3,6 @@
     <event-ticket [ticketData]="ticketData" *ngIf="ticketType === 'event'"></event-ticket>
     <neutral-ticket [ticketData]="ticketData" *ngIf="ticketType !== 'transport' && ticketType !== 'event'"></neutral-ticket>
 </div>
+<div class="mobile-actions">
+    <button mat-stroked-button mat-dialog-close>Zamknij</button>
+</div>
