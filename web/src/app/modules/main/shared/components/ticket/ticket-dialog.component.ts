@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -6,7 +6,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './ticket.component.html',
   styleUrls: ['./styles/ticket.scss']
 })
-export class TicketDialogComponent {
+export class TicketDialogComponent implements OnInit {
 
   ticketData: any[] = [];
 

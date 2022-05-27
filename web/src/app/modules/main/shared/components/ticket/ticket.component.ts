@@ -1,12 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'ticket',
   templateUrl: './ticket.component.html',
   styleUrls: ['./styles/ticket.scss']
 })
-export class TicketComponent {
+export class TicketComponent implements OnChanges {
 
   @Input() ticketDataType: string = '';
   @Input() ticketID: string = '';
