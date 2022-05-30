@@ -1,0 +1,55 @@
+<div class="ticket-content" *ngFor="let data of ticketData">
+    <div class="ticket-header cover-header" *ngFor="let brand of data.brand" [ngStyle]="{'background-image': 'url('+data.cover+')'}">
+        <img class="brand-logo" [src]="brand.logo" alt="Brand Logo">
+        <h3 class="ticket-type">{{data.type}}</h3>
+    </div>
+    <div class="ticket-main neutral-main neutral-w-button">
+        <div>
+            <h2 class="ticket-name">{{data.name}}</h2>
+            <h3 class="ticket-place">{{data.place}}</h3>
+        </div>
+        <button mat-icon-button *ngIf="data.geolocalization">
+            <mat-icon>place</mat-icon>
+        </button>
+    </div>
+    <div class="ticket-data">
+        <div class="horizontal-line-dashed">
+            Najważniejsze
+        </div>
+        <div class="content" *ngFor="let content of data.main">
+            <div class="section" *ngFor="let section of content.first" [ngClass]="{'single-section': content.first.length === 1}">
+                <span class="category">{{section.category}}</span>
+                <span class="value">{{section.value | datelocale}}</span>
+            </div>
+            <div class="section section-big" *ngFor="let section of content.second" [ngClass]="{'single-section': content.second.length === 1}">
+                <span class="category">{{section.category}}</span>
+                <span class="value">{{section.value}}</span>
+            </div>
+        </div>
+        <div class="horizontal-line-dashed">
+            Szczegóły
+        </div>
+    </div>
+    <div class="ticket-details">
+        <div class="content">
+            <div class="section" *ngFor="let content of data.details" [ngClass]="{'single-section': data.details.length === 1}">
+                <span class="category">{{content.category}}</span>
+                <span class="value">
+                    <span *ngIf="!content.type">{{content.value}}</span>
+                    <span *ngIf="content.type === 'price'"><span [outerHTML]="content.value | currencychange"></span></span>
+                    <mat-icon *ngIf="content.more" class="material-icons-round">help_outline</mat-icon>
+                </span>
+            </div>
+        </div>
+        <img class="ticket-bar-code" [src]="data.barCode" alt="Ticket Bar Code">
+        <div class="content">
+            <div class="section">
+                <span class="category">Numer Biletu</span>
+                <span class="value">{{data.ticketNumber}}</span>
+            </div>
+            <div class="section provider-section" *ngFor="let provider of data.provider">
+                <img class="ticket-provider-logo" [src]="provider.logo" alt="Ticket Provider Logo">
+            </div>
+        </div>
+    </div>
+</div>

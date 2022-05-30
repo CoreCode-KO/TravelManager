@@ -1,0 +1,62 @@
+.hotel-card {
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+
+    .cover {
+        width: 160px;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+.hotel-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    .offer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .price {
+        font-size: 30px;
+        font-weight: 700;
+
+        .type {
+            font-size: 16px;
+            color: var(--accent--color);
+        }
+    }
+
+    .rates {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .rate-avg {
+            background-color: rgba(0, 133, 255, .3);
+            border-radius: 5px;
+            padding: 1px 3px;
+            font-weight: 700;
+            color: var(--light-blue);
+        }
+
+        .stars {
+            display: flex;
+
+            mat-icon {
+                font-size: 20px;
+                width: 20px;
+                height: 20px;
+                color: var(--gold);
+            }
+        }
+    }
+}

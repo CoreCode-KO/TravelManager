@@ -1,0 +1,34 @@
+<div class="hotel-card" *ngFor="let data of eventData" matRipple>
+    <div class="verification verification-opacity" *ngIf="data.verified">
+        <mat-icon class="material-icons-round">verified</mat-icon>
+    </div>
+    <img class="cover" [src]="data.cover" alt="Hotel offer photo">
+    <div class="hotel-content">
+        <div>
+            <h2>{{data.name}}</h2>
+            <div class="horizontal-line-dashed"></div>
+        </div>
+        <div class="offer">
+            <h3>{{data.offer}}</h3>
+            <div class="price">
+                <span [outerHTML]="data.price | currencychange"></span>
+                <span class="type">/{{data.priceType}}</span>
+            </div>
+            <div class="tags">
+                <div class="tag" *ngFor="let tag of data.tags.slice(0, 1)">{{tag.name}}</div>
+                <span class="count-tags">
+                    +{{data.tags.length - 1}}
+                </span>
+            </div>
+        </div>
+        <div>
+            <div class="horizontal-line-dashed"></div>
+            <div class="rates">
+                <span class="rate-avg">{{data.rateAvg}}</span>
+                <div class="stars">
+                    <mat-icon class="material-icons-round" *ngFor="let star of fakeArray(data.stars)">star_rate</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RoutesConfig } from 'src/app/configs';
+import { RoutesConfig } from 'src/app/shared';
 import { EventsComponent, ExploreComponent, HotelsComponent, PaymentsComponent, TicketsComponent, TransportComponent } from './pages';
 
 const mainRoutes = RoutesConfig.routesNames.main;

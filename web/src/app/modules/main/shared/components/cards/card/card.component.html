@@ -1,0 +1,17 @@
+<div class="card" [ngClass]="{'place' : cardType === 'place', 'active-card': activeTicket === cardData[0]['id']}">
+    <event-card *ngIf="cardType === 'event'" [eventData]="cardData"></event-card>
+    <place-card *ngIf="cardType === 'place'" [eventData]="cardData"></place-card>
+    <hotel-card *ngIf="cardType === 'hotel'" [eventData]="cardData"></hotel-card>
+    <transport-card *ngIf="cardType === 'transport'" [eventData]="cardData"></transport-card>
+    <ticket-card *ngIf="cardType === 'ticket'" [eventData]="cardData" (click)="openTicketDialog()"></ticket-card>
+    
+    <button class="hover-more" mat-ripple matRippleColor="rgba(128, 128, 128, .2)" (click)="openTicketData()">
+        <mat-icon class="material-icons-round">bolt</mat-icon>
+        Szczegóły
+    </button>
+
+    <button class="hover-more active-inf" *ngIf="activeTicket === cardData[0]['id']">
+        <mat-icon class="material-icons-round">visibility</mat-icon>
+        Otwarto
+    </button>
+</div>

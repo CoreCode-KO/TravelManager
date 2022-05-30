@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from 'src/app/shared';
 
 import { SignInPageComponent } from './sign-in-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SignInPageComponent', () => {
   let component: SignInPageComponent;
@@ -14,7 +15,8 @@ describe('SignInPageComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule,
-        SharedModule
+        SharedModule,
+        BrowserAnimationsModule
       ],
       declarations: [SignInPageComponent]
     })

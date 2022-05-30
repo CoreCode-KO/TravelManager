@@ -1,0 +1,34 @@
+@import "theme";
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    text-align: center;
+
+    .event-date-day {
+        color: var(--red);
+        font-size: 18px;
+    }
+
+    .event-date-month-name {
+        font-size: 14px;
+        line-height: 80%;
+    }
+}
+
+.local-price {
+    .cost {
+        color: var(--green);
+    }
+
+    .currency {
+        color: var(--half--color);
+    }
+}
+
+.place-content {
+    .local-price {
+        font-size: 20px;
+    }
+}

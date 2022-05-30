@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RoutesConfig } from './configs/routes.config';
-import { AuthGuard, RoleGuard } from './shared';
+import { RoutesConfig } from './shared';
+import { AuthGuard, RoleGuard } from './core';
 
 const routes: Routes = [
   { path: "", redirectTo: "landing", pathMatch: "full" },

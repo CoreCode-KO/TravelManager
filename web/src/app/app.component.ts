@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
-import { ThemeService } from './shared';
-import { AuthService } from './shared/services/auth.service';
+import { AuthService, ThemeService } from './core';
 
 @Component({
   selector: 'app-root',

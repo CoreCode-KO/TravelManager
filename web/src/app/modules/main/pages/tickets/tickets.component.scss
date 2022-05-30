@@ -1,0 +1,57 @@
+.category {
+    color: var(--secondary--color);
+    font-weight: 700;
+    background-color: #7000FF19;
+    padding: 2px 12px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 10px;
+    padding: 10px;
+    overflow-y: auto;
+
+    card {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+.cards::-webkit-scrollbar,
+ticket::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border-radius: 30px;
+    background-color: transparent;
+}
+
+.cards::-webkit-scrollbar-thumb,
+ticket::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background-color: var(--accent--color);
+}
+
+ticket {
+    height: 100%;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 800px) {
+
+    .component-side,
+    .sides-separate,
+    .cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cards {
+        margin: 10px 0 0;
+    }
+
+}

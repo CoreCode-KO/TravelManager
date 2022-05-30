@@ -1,1 +1,31 @@
-<p>tickets works!</p>
+<div class="main-content">
+    <div class="tickets-side">
+        <div class="side-header">
+            <h1>Moje Bilety</h1>
+            <span class="category" matRipple>Najbliższe</span>
+        </div>
+        <div class="cards" >
+            <card *ngFor="let data of ticketsData" cardType="ticket" [cardData]="[data]" (openTicket)="openTicket($event)" [activeTicket]="ticketID"></card>
+        </div>
+
+    </div>
+    <div class="vertical-dashed-line sides-separate"></div>
+    <div class="component-side">
+        <div class="side-header">
+            <h1>Szczegóły</h1>
+        </div>
+        <ticket [ticketDataType]="ticketType" [ticketID]="ticketID"></ticket>
+    </div>
+
+    <!--<div class="cards">
+        <card cardType="event" [cardData]="eventData"></card>
+
+        <card cardType="place" [cardData]="placeData"></card>
+        
+        <card cardType="hotel" [cardData]="hotelData"></card>
+    
+        <card cardType="transport" [cardData]="transportData"></card>
+    
+        <card cardType="ticket" [cardData]="ticketData"></card>
+    </div>-->
+</div>
